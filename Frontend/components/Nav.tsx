@@ -1,15 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Nav = () => {
   return (
     <Navbar>
       <div className="navbarContainer">
-        <div>로고</div>
+        <div className="imgBox">
+          <img src="static/logo.png" />
+        </div>
         <NavbarMenu>
-          <div>홈</div>
-          <div>Software 공유하기</div>
-          <div>프로필</div>
+          <div>
+            <Link to="/">Home</Link>
+          </div>
+          <div>
+            <Link to="/">Software 공유하기</Link>
+          </div>
+          <div>
+            <Link to="/Login">프로필</Link>
+          </div>
         </NavbarMenu>
       </div>
     </Navbar>
@@ -28,16 +37,47 @@ const Navbar = styled.nav`
   border-bottom: 1px solid #eeeeee;
 
   .navbarContainer {
-    width: 1200px;
+    width: 1000px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .imgBox {
+      width: 90px;
+      height: 30px;
+      cursor: pointer;
+      padding: 0 20px;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 `;
 
 const NavbarMenu = styled.div`
+  height: 100%;
   display: flex;
 
   & > div {
-    margin: 0 4px;
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+    cursor: pointer;
+    font-weight: bold;
+
+    a {
+      height: 100%;
+      color: black;
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+
+      :hover {
+        border-bottom: 1px solid blue;
+      }
+    }
   }
 `;
